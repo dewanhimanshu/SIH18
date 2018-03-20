@@ -1,2 +1,25 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+
+<% if !user_signed_in? %>
+<div class="home-sign-in">
+  <h2>If you are already registered please sign in:</h2>
+  <%= simple_form_for(:user, :url => session_path(:user)) do |f| %>
+    <%= f.input :email %>
+    <%= f.input :password %>
+    <%= f.check_box :remember_me %>
+    <br />
+    <%= f.button :submit, 'Sign In' %>
+    <br />
+    <%= link_to "Forgot your password?", new_password_path(:user) %>
+  <% end %>
+  <h2>If not registered please sign up:</h2>
+  <%= link_to '<button type="button" class="btn btn-default">Sign Up</button>'.html_safe, new_user_registration_path %>
+</div>
+<% else %>
+  <% if current_user.type_account == false %>
+    <h2><%= current_user.first_name %></h2>
+    <h2><%= current_user.last_name %></h2>
+    <h2><%= current_user.birthday %></h2>
+  <% else %>
+    <h2>dfsf</h2>
+  <% end %>
+<% end %>
