@@ -70,3 +70,5 @@ gem 'paperclip', '~> 5.2', '>= 5.2.1'
 gem 'trix', '~> 0.11.1'
 
 gem 'jquery-rails'
+
+gem 'will_paginate', '~> 3.1', '>= 3.1.6'

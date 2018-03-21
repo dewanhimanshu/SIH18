@@ -1,0 +1,56 @@
+
+<% if current_user.type_account == true %>
+<h1>Empl</h1>
+<% @appls.each do |a| %>
+  <% if a.status == "seen" || a.status == "applied" %>
+  <% a.status = "seen" %>
+  <% a.save %>
+  <b>First Name:</b><%= a.first_name %>
+  <br />
+  <b>Last Name:</b><%= a.last_name %>
+  <br />
+  <b>Date of Birth:</b><%= a.dob %>
+  <br />
+  <b>Aadhaar number:</b><%= a.aadhaar %>
+  <br />
+  <b>Email:</b><%= a.user.email %>
+  <br />
+  <%= time_ago_in_words(a.created_at) %>
+  <hr />
+  <div id="feedback">
+    <%= render 'formFeedback', appl: a %>
+  </div>
+  <% else %>
+  Already viewed this application.
+  <br />
+  <%= will_paginate @appls, page_links: false, previous_label: "" %>
+  <% end %>
+<% end %>
+
+<% else %>
+<h1><%= current_user.first_name %> <%= current_user.last_name %></h1>
+<% flag = false %>
+<% @appls.each do |a| %>
+  <% if a.user_id == current_user.id %>
+    <h2>Your Application:</h2>
+    First Name:<%= a.first_name %>
+    <br />
+    Last Name:<%= a.last_name %>
+    <br />
+    Date of Birth:<%= a.dob %>
+    <br />
+    Aadhaar No:<%= a.aadhaar %>
+    <br />
+    Email:<%= a.user.email %>
+    <br />
+    Status:<%= a.status %>
+    <br />
+    <% flag = true %>
+    <%= link_to '<button type="button" class="btn btn-default">Edit</button>'.html_safe, edit_apply_path(a) %>
+    <%= link_to '<button type="button" class="btn btn-danger">Delete</button>'.html_safe, apply_path(a), method: :delete, data: {confirm: "Are you sure you want to delete the application?"} %>
+  <% end %>
+<% end %>
+<% if flag == false %>
+  <%= link_to '<button type="button" class="btn btn-primary">Apply for Pension</button>'.html_safe, new_apply_path %>
+<% end %>
+<% end %>

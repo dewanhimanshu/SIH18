@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180320182119) do
+ActiveRecord::Schema.define(version: 20180321063559) do
+
+  create_table "applies", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.date "dob"
+    t.integer "aadhaar"
+    t.string "status", default: "applied"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.text "feedback"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false

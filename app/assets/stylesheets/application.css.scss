@@ -17,9 +17,163 @@
  @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.home-sign-in
+.main-yield
+{
+  margin-left: 400px;
+}
+
+.home-sign-in-up
 {
   margin: 0 auto;
   width: 500px;
   height: 300px;
+}
+
+#sidebar-left
+{
+
+	background:#e7e7e7;
+	width:350px;
+	height:100%;
+	display:block;
+	position:fixed;
+	left: 0px;
+	top: 55px;
+  overflow: auto;
+}
+
+#sidebar-left.visible
+{
+	left:0px;
+}
+
+#sidebar-left ul
+{
+	margin:0px;
+	padding:0px;
+}
+
+#sidebar-left ul li
+{
+  text-align: center;
+	list-style:none;
+}
+
+#sidebar-left ul li a
+{
+	background: #E8E8E8;
+	color:#101010;
+	border-bottom:1px solid #111;
+	display:block;
+	width:348px;
+	padding:10px;
+	text-decoration: none;
+}
+
+#sidebar-left ul li a:hover
+{
+	color: #ccc;
+}
+
+#sidebar-btn-left
+{
+	display:inline-block;
+	vertical-align: middle;
+	width:20px;
+	height:15px;
+	cursor:pointer;
+	margin:20px;
+	position:relative;
+	top: 0px;
+  color: #9d9d9d;
+  display: none;
+}
+#sidebar-btn-left:hover
+{
+  color: white;
+}
+
+.news-img
+{
+  height: 300px;
+  width: 300px;
+}
+
+@media only screen and (max-width: 600px) {
+  .main-yield
+  {
+    margin-left: 0px;
+  }
+
+  #sidebar-btn-left
+  {
+    display:inline-block;
+    vertical-align: middle;
+    width:20px;
+    height:15px;
+    cursor:pointer;
+    margin:20px;
+    position:relative;
+    top: 0px;
+    color: #777;
+  }
+  #sidebar-btn-left:hover
+  {
+    color: #333333;
+  }
+
+  .news-img
+  {
+    height: 300px;
+    width: 300px;
+  }
+
+  #sidebar-left
+  {
+
+  	background:#e7e7e7;
+  	width:350px;
+  	height:100%;
+  	display:block;
+  	position:fixed;
+  	left: -350px;
+  	top: 55px;
+  	transition:left 0.3s linear;
+    overflow: auto;
+  }
+
+  #sidebar-left.visible
+  {
+  	left:0px;
+  	transition:left 0.3s linear;
+  }
+
+  #sidebar-left ul
+  {
+  	margin:0px;
+  	padding:0px;
+  }
+
+  #sidebar-left ul li
+  {
+    text-align: center;
+  	list-style:none;
+  }
+
+  #sidebar-left ul li a
+  {
+  	background: #E8E8E8;
+  	color:#101010;
+  	border-bottom:1px solid #111;
+  	display:block;
+  	width:348px;
+  	padding:10px;
+  	text-decoration: none;
+  }
+
+  #sidebar-left ul li a:hover
+  {
+  	color: #ccc;
+  }
+
 }

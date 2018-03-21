@@ -1,6 +1,6 @@
 
 <% if !user_signed_in? %>
-<div class="home-sign-in">
+<div class="home-sign-in-up">
   <h2>If you are already registered please sign in:</h2>
   <%= simple_form_for(:user, :url => session_path(:user)) do |f| %>
     <%= f.input :email %>
