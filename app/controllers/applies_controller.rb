@@ -25,25 +25,11 @@ class AppliesController < ApplicationController
   end
 
   def update
-    if current_user.type_account == true
-      if @appl.status == "accepted" || @appl.status == "declined"
-        if @appl.update(set_params)
-          redirect_to root_path
-          flash[:success] = "Saved"
-        else
-          redirect_to root_path
-          flash[:success] = "Not Saved"
-        end
-      else
-        redirect_to root_path
-      end
-    else
       if @appl.update(set_params)
         redirect_to root_path
       else
         render 'edit'
       end
-    end
   end
 
   def destroy
@@ -53,7 +39,7 @@ class AppliesController < ApplicationController
 
   private
   def set_params
-    params.require(:apply).permit(:first_name, :last_name, :dob, :aadhaar, :user_id, :feedback)
+    params.require(:apply).permit(:first_name, :last_name, :dob, :aadhaar, :user_id, :feedback, :status)
   end
 
   def find_apply
