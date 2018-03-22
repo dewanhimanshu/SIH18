@@ -42,7 +42,7 @@ class AppliesController < ApplicationController
 
   private
   def set_params
-    params.require(:apply).permit(:first_name, :last_name, :dob, :aadhaar, :user_id, :feedback, :status)
+    params.require(:apply).permit(:first_name, :last_name, :dob, :aadhaar, :user_id, :feedback, :status,:avatar)
   end
 
   def find_apply
