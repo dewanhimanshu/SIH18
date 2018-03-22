@@ -2,10 +2,15 @@
 <html>
   <head>
     <title>SIH</title>
+    
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+       <%= stylesheet_link_tag 'noty' %>
+  <%= stylesheet_link_tag 'themes/relax' %>
+  <%= javascript_include_tag 'mo' %>
+  
   </head>
 
   <body>
@@ -82,13 +87,22 @@
     <div class="main-yield">
       <%= yield %>
     </div>
+    <%= javascript_include_tag "noty" %>
+
 
     <script>
+
       $(document).ready(function(){
         $('#sidebar-btn-left').click(function(){
   			     $('#sidebar-left').toggleClass('visible');
   		  });
-      });
+new Noty({
+    text: 'Notification text',
+    status: 'error',
+       layout: "bottomRight"
+}).show();
+ 
+});
     </script>
   </body>
 </html>
