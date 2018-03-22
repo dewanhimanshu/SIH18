@@ -2,18 +2,18 @@
 <html>
   <head>
     <title>SIH</title>
-    
+
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    
+
      <%= stylesheet_link_tag 'noty' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-      
+
   <%= stylesheet_link_tag 'themes/relax' %>
 
   <%= stylesheet_link_tag 'sweetalert' %>
-  
+
   </head>
 
   <body>
@@ -58,7 +58,7 @@
                   <% if Apply.exists?(user_id: current_user.id, status: "applied") %>
                   <li role="separator" class="divider"></li>
                     <li>
-                      <%= link_to "Edit Your Application", edit_apply_path(current_user.apply_ids) %>
+                      <%= link_to "Edit Your Application", edit_apply_path(current_user.apply) %>
                     </li>
                   <% else %>
                   <li role="separator" class="divider"></li>
@@ -78,9 +78,9 @@
     </nav>
 
     <% if notice %>
-      <p class="notice"><%= notice %></p>
+      <p class="notice" style="margin-left: 350px"><%= notice %></p>
     <% elsif alert %>
-      <p class="alert"><%= alert %></p>
+      <p class="alert" style="margin-left: 350px"><%= alert %></p>
     <% end %>
 
     <div id="sidebar-left">
@@ -110,7 +110,7 @@
 
   //swal("Hello world!")
        new Noty({
-    
+
     text: 'Welcome',
     theme: "relax",
     type: 'success',

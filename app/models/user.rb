@@ -2,11 +2,8 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable ,:confirmable, :lockable, :timeoutable 
+         :recoverable, :rememberable, :trackable, :validatable ,:confirmable, :lockable, :timeoutable
 
-<<<<<<< HEAD
-  has_many :applies
-=======
   has_one :apply
 
 
@@ -22,6 +19,4 @@ class User < ApplicationRecord
      Usermailer.welcome_email(self).deliver
     end
 
-
->>>>>>> dc9f5db77f39ec889326c794e3a0114214bc4d7f
 end

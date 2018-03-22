@@ -18,6 +18,8 @@
       <b>Email:</b><%= a.user.email %>
       <br />
       <%= time_ago_in_words(a.created_at) %>
+      <br />
+      <b>Pic:</b><%= image_tag a.avatar.url(:thumb) %>
       <hr />
       <div id="feedback">
         <%= render 'formFeedback', appl: a %>
@@ -57,9 +59,11 @@
 
     <b>Pic:</b><%= image_tag a.avatar.url(:thumb) %>
     <% flag = true %>
+    <% if a.status != "seen" %>
     <%= link_to '<button type="button" class="btn btn-default">Edit</button>'.html_safe, edit_apply_path(a) %>
     <%= link_to '<button type="button" class="btn btn-danger">Delete</button>'.html_safe, apply_path(a), method: :delete, data: {confirm: "Are you sure you want to delete the application?"} %>
     <% else %>
+    <br />
     <b>Application can't be changed as it is already seen</b>
     <% end %>
   </div>
