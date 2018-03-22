@@ -37,6 +37,9 @@ class AppliesController < ApplicationController
     redirect_to root_path
   end
 
+  def status
+  end
+
   private
   def set_params
     params.require(:apply).permit(:first_name, :last_name, :dob, :aadhaar, :user_id, :feedback, :status)

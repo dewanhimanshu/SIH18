@@ -31,9 +31,9 @@
 
 #sidebar-left
 {
-
+  font-size: 20px;
 	background:#e7e7e7;
-	width:350px;
+	width:300px;
 	height:100%;
 	display:block;
 	position:fixed;
@@ -65,7 +65,7 @@
 	color:#101010;
 	border-bottom:1px solid #111;
 	display:block;
-	width:348px;
+	width:298px;
 	padding:10px;
 	text-decoration: none;
 }
@@ -99,7 +99,18 @@
   width: 300px;
 }
 
+.appl-appl
+{
+  text-align: left;
+  margin-right: 30px;
+  font-size: 20px;
+}
+
 @media only screen and (max-width: 600px) {
+  .appl-appl
+  {
+    margin-left: 30px;
+  }
   .main-yield
   {
     margin-left: 0px;
@@ -122,17 +133,11 @@
     color: #333333;
   }
 
-  .news-img
-  {
-    height: 300px;
-    width: 300px;
-  }
-
   #sidebar-left
   {
 
   	background:#e7e7e7;
-  	width:350px;
+  	width:300px;
   	height:100%;
   	display:block;
   	position:fixed;
@@ -166,7 +171,7 @@
   	color:#101010;
   	border-bottom:1px solid #111;
   	display:block;
-  	width:348px;
+  	width:298px;
   	padding:10px;
   	text-decoration: none;
   }

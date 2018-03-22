@@ -1,0 +1,9 @@
+
+<h2>The status of your application is:</h2>
+<% apl = Apply.where(user_id: current_user.id)[0] %>
+<h3 style="color: green;"><u><%= apl.status %></u></h3>
+
+<% if apl.feedback != nil || apl.feedback != "" %>
+<h2>Feedback:</h2>
+<b><%= apl.feedback %></b>
+<% end %>
