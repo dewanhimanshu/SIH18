@@ -3121,4 +3121,4 @@ module.exports = g;
 /***/ })
 /******/ ]);
 });
-sourceMappingURL=noty.js.map
+//sourceMappingURL=noty.js.map

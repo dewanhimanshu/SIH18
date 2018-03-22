@@ -7,6 +7,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'rails-assets-sweetalert2', source: 'https://rails-assets.org'
+gem 'sweet-alert-confirm'
 
 gem "paperclip", "~> 6.0.0"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
