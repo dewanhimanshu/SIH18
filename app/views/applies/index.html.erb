@@ -60,7 +60,7 @@
     <b>Pic:</b><%= image_tag a.avatar.url(:thumb) %>
     <% flag = true %>
     <% if a.status != "seen" %>
-    <%= link_to '<button type="button" class="btn btn-default">Edit</button>'.html_safe, edit_apply_path(a) %>
+    <%= link_to '<button type="button" class="btn btn-default">Edit</button>'.html_safe, edit_apply_path(a) , data: {confirm: "Are you sure you want to delete the application?" }%>
     <%= link_to '<button type="button" class="btn btn-danger">Delete</button>'.html_safe, apply_path(a), method: :delete, data: {confirm: "Are you sure you want to delete the application?"} %>
     <% else %>
     <br />
