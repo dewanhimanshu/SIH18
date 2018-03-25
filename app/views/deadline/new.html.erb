@@ -1,0 +1,6 @@
+<h3>Set Timmer</h3>
+<%= form_for @deadline,:url => {:controller => "deadline", :action => "create"} do |f| %>
+<%= f.label :Timmer %>
+<%= f.datetime_select :timmer %>
+<%= f.submit class: 'timmer' ' Set Deadline' %>
+<%end%>
