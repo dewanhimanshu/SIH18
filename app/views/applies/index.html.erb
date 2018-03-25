@@ -70,7 +70,12 @@
   <% end %>
 <% end %>
 <% if flag == false %>
+<%if Deadline.first!=nil && Time.now<=Deadline.first.timmer%>
   <%= link_to '<button type="button" class="btn btn-primary">Apply for Pension</button>'.html_safe, new_apply_path %>
-<% end %>
-<% end %>
+<%else%>
+<h3>Deadline is over</h3>
+<%end%>
+<%end%>
+<%end%>
+
 </div>

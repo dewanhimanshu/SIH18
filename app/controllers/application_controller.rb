@@ -3,6 +3,15 @@ class ApplicationController < ActionController::Base
 
   before_action :permit_params, if: :devise_controller?
 
+  def after_sign_in_path_for(resource)
+    if (current_user.admin==true)
+      admin_index_path
+    else
+      applies_path
+    end
+  end
+
+
   protected
   def permit_params
 

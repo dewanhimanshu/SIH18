@@ -1,0 +1,15 @@
+<h1>Hi! <%= current_user.email %> Welcome to our discussion form.</h1>
+<h3>Have a question?</h3>
+<%= link_to '<button type="button" class="btn btn-primary">Ask a Question</button>'.html_safe, new_question_path %>
+<h3>Questions that people asked:</h3>
+<% @ques.each do |q| %>
+  <div class="well"><h2><%= link_to q.content, q%></h2></div>
+  <b>Created By:</b><%= q.user.email %>
+  <br />
+
+  <br />
+  <b>Hits:</b> <%= q.hits %>
+  <br />
+  <b>Created:</b> <%= time_ago_in_words(q.created_at) %> ago
+  <hr />
+<% end %>

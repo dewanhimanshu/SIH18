@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180322131728) do
+ActiveRecord::Schema.define(version: 20180325095307) do
+
+  create_table "admins", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "answers", force: :cascade do |t|
+    t.text "content"
+    t.integer "hits", default: 0
+    t.integer "question_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_answers_on_question_id"
+    t.index ["user_id"], name: "index_answers_on_user_id"
+  end
 
   create_table "applies", force: :cascade do |t|
     t.string "first_name"
@@ -26,6 +42,21 @@ ActiveRecord::Schema.define(version: 20180322131728) do
     t.string "avatar_content_type"
     t.integer "avatar_file_size"
     t.datetime "avatar_updated_at"
+  end
+
+  create_table "deadlines", force: :cascade do |t|
+    t.integer "user_id"
+    t.datetime "timmer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.string "content"
+    t.integer "hits", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -56,6 +87,7 @@ ActiveRecord::Schema.define(version: 20180322131728) do
     t.string "avatar_content_type"
     t.integer "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.boolean "admin"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

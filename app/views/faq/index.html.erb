@@ -1,0 +1,12 @@
+<h1>Here are some frequently asked questions:</h1>
+<% a = 0 %>
+<% @faq.each do |q| %>
+<% if a <= 9 %>
+<div class="well">
+  <h2><%= a+1 %> <%= link_to q.content, question_path(q) %></h2>
+  <br />
+  <b>Hits:</b><%= q.hits %>
+</div>
+<% end %>
+<% a += 1 %>
+<% end %>
