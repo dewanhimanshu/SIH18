@@ -1,0 +1,6 @@
+<h3>Update Timmer</h3>
+<%= form_for @deadline,:url => {:controller => "deadline", :action => "update"} do |f| %>
+<%= f.label :Timmer %>
+<%= f.text_field :timmer %>
+<%=f.submit "Set Deadline"%>
+<%end%>

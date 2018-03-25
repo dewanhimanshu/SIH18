@@ -83,6 +83,12 @@
       <p class="alert" style="margin-left: 350px"><%= alert %></p>
     <% end %>
 
+
+<p id="demo" style="    margin-left: 70%;
+    font-size: 15px;
+    margin-top: -10x;"></p>
+
+
     <div id="sidebar-left">
   		<ul id="news-bar">
         <li><%= link_to "Discussion", questions_path %></li>
@@ -197,11 +203,50 @@
 }).show();
 
 
+  function countdown(d)
+  {
+    console.log(d);
+    var temp = $('.temp_information').data('temp') ;
+    if (!d){
+      console.log("bye") ;
+      return ;
+    }
 
+    console.log(d["timmer"]);
+  var deadline = new Date(d["timmer"]).getTime();
 
+  var x = setInterval(function() {
+  var now = new Date().getTime();
+  var t = deadline - now;
+  var days = Math.floor(t / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((t%(1000 * 60 * 60 * 24))/(1000 * 60 * 60));
+  var minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((t % (1000 * 60)) / 1000);
+  console.log(days + "d "
+  + hours + "h " + minutes + "m " + seconds + "s ")
+  if(days>0)
+  {
+  document.getElementById("demo").innerHTML = days + " days " + " Remaining "
+  }
+  else {
+    if(hours>0){
+    document.getElementById("demo").innerHTML = hours +" hours " + minutes +" minutes " + " Remaining "
+  }
+  else {
+    document.getElementById("demo").innerHTML = minutes +" minutes " + seconds +" seconds " + " Remaining "
+  }
+  }
+      if (t < 0) {
+          clearInterval(x);
+          document.getElementById("demo").innerHTML = "APPLICATION EXPIRED";
+      }
+  }, 1000);
+}
 
-
-
+  // $('.timmer').click(countdown.bind(this, <%= Deadline.first %>));
+  $('.document').ready(function(){
+    countdown(<%=Deadline.first.to_json.html_safe%>)
+  });
 
 });
     </script>

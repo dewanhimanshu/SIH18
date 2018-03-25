@@ -1,0 +1,15 @@
+<%if Deadline.all.length==0%>
+      <%if can? :create,Deadline.new %>
+          <%=link_to"Set Timmer",new_deadline_path%>
+      <%end%>
+<%else%>
+      <%if Deadline.first.timmer>Time.now%>
+      <h3>TIMMER IS ENABLED </h3>
+      <%else%>
+      <h3>TIMMER IS OVER </h3>
+      <%end%>
+      <%if can? :update,Deadline.first %>
+          <%=link_to"edit",edit_deadline_path(Deadline.first.id)%>
+      <%end%>
+      <%=link_to"delete",deadline_path(Deadline.first.id),method: :delete%>
+<%end%>
