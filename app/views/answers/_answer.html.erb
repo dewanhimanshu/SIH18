@@ -1,0 +1,27 @@
+<% @an = pluralize(@ans.count, "") %>
+<% if @ans.many? %>
+  <h2>Answers(<%= @an %>):</h2>
+<% end %>
+<% if !@ans.many? %>
+  <h2>Answer:</h2>
+<% end %>
+<% @ans.each do |a| %>
+  <b>Answered by:</b><%= a.user.email %>
+  <div class="well well-normal"><h2><%= a.content.html_safe %></h2></div>
+  <b>Created:</b> <%= time_ago_in_words(a.created_at) %> ago
+  <br />
+  <% if a.updated_at != a.created_at %>
+  <b>Updated At:</b> <%= time_ago_in_words(a.updated_at) %> ago
+  <br />
+  <% end %>
+
+  <br />
+
+  <% if current_user == a.user %>
+  <%= link_to '<button type="button" class="btn btn-default">Edit</button>'.html_safe, edit_question_answer_path(a.question, a) %>
+  <%= link_to '<button type="button" class="btn btn-danger">Delete</button>'.html_safe, [a.question, a], method: :delete %>
+  <% elsif current_user == @ques.user %>
+  <%= link_to '<button type="button" class="btn btn-danger">Delete</button>'.html_safe, [a.question, a], method: :delete, data: {confirm: 'Are you sure you want to delete this answer?'} %>
+  <% end %>
+  <hr />
+<% end %>

@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'faq/index'
+
+  resources :questions do
+    resources :answers
+  end
+
   get 'users/show'
 
   devise_for :users

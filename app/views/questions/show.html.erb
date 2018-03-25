@@ -1,0 +1,19 @@
+<%= link_to '<button type="button" class="btn btn-primary">Questions Wall</button>'.html_safe, questions_path %>
+<br />
+<div class="well well-sm"><h2><%= @ques.content %></h2></div>
+<b>Created By:<%= @ques.user.email %></b>
+<br />
+<b>Hits:</b> <%= @ques.hits %>
+<br />
+<b>Created:</b> <%= time_ago_in_words(@ques.created_at) %> ago
+<br />
+<% if current_user == @ques.user %>
+<%= link_to '<button type="button" class="btn btn-default">Edit</button>'.html_safe, edit_question_path(@ques) %>
+<%= link_to '<button type="button" class="btn btn-danger">Delete</button>'.html_safe, question_path(@ques), method: :delete, data: {confirm: 'Are you sure?'} %>
+<% end %>
+<br />
+
+<br />
+<h2>Add your answer:</h2>
+<%= render 'answers/form' %>
+<%= render 'answers/answer' %>

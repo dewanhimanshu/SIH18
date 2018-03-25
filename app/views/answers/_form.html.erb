@@ -1,0 +1,4 @@
+<%= simple_form_for([@ques, @ques.answers.build]) do |f| %>
+  <%= f.input :content, as: :trix_editor, label: "Answer(can't be blank)" %>
+  <%= f.button :submit %>
+<% end %>
